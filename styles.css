@@ -203,11 +203,12 @@ h2 { font-size: clamp(1.5rem, 3vw, 2.3rem); margin-bottom: 0.8rem; }
 
 @media (max-width: 680px) {
   .site-header { align-items: center; }
-  .menu-toggle { display: inline-flex; }
+  .menu-toggle { display: inline-flex; z-index: 21; }
   .nav-links {
     position: fixed;
     top: 4.3rem;
     right: 1rem;
+    z-index: 22;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;

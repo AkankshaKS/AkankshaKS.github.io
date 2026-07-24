@@ -1,12 +1,16 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const revealItems = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.15 });
-revealItems.forEach((item) => observer.observe(item));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add('visible'));
+}
 
 const filterButtons = document.querySelectorAll('.filter-chip');
 const projectCards = document.querySelectorAll('.project-card');
@@ -56,26 +60,32 @@ tabs.forEach((tab) => {
 });
 
 const counters = document.querySelectorAll('.count');
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const target = Number(entry.target.getAttribute('data-target'));
-      let current = 0;
-      const step = Math.max(1, Math.ceil(target / 40));
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          entry.target.textContent = target;
-          clearInterval(timer);
-        } else {
-          entry.target.textContent = current;
-        }
-      }, 40);
-      countObserver.unobserve(entry.target);
-    }
+if ('IntersectionObserver' in window) {
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const target = Number(entry.target.getAttribute('data-target'));
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 40));
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            entry.target.textContent = target;
+            clearInterval(timer);
+          } else {
+            entry.target.textContent = current;
+          }
+        }, 40);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach((counter) => countObserver.observe(counter));
+} else {
+  counters.forEach((counter) => {
+    counter.textContent = counter.getAttribute('data-target');
   });
-}, { threshold: 0.5 });
-counters.forEach((counter) => countObserver.observe(counter));
+}
 
 const tiltCards = document.querySelectorAll('.tilt-card');
 tiltCards.forEach((card) => {

@@ -14,7 +14,12 @@
 
     <header class="site-header">
       <a class="brand" href="#hero">AK</a>
-      <nav class="nav-links" aria-label="Primary navigation">
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#journey">Journey</a>
         <a href="#expertise">Expertise</a>
@@ -68,6 +73,20 @@
                 <div class="mini-card">
                   <strong>12%</strong>
                   <span>Engagement Lift</span>
+                </div>
+              </div>
+              <div class="mobile-profile-panel">
+                <div class="profile-top">
+                  <div class="profile-avatar">AK</div>
+                  <div>
+                    <strong>Akanksha</strong>
+                    <p>Android Engineer</p>
+                  </div>
+                </div>
+                <div class="mobile-profile-pill-row">
+                  <span>Compose</span>
+                  <span>AI</span>
+                  <span>Reliability</span>
                 </div>
               </div>
               <div class="widget-row">
@@ -175,19 +194,32 @@
           <p class="eyebrow">Android expertise</p>
           <h2>Engineering depth across product, architecture, and performance.</h2>
         </div>
-        <div class="expertise-grid">
-          <article class="card expertise-card tilt-card"><h3>Jetpack Compose</h3><p>Designing scalable, expressive UI systems with Material 3 and modern state management.</p></article>
-          <article class="card expertise-card tilt-card"><h3>Coroutines & Flow</h3><p>Building responsive, resilient app flows with strong lifecycle and concurrency discipline.</p></article>
-          <article class="card expertise-card tilt-card"><h3>Modularization</h3><p>Structuring apps for long-term maintainability, independent delivery, and clear ownership boundaries.</p></article>
-          <article class="card expertise-card tilt-card"><h3>Performance</h3><p>Reducing ANRs, optimizing rendering, improving startup, and shaping smoother product behaviour.</p></article>
-          <article class="card expertise-card tilt-card"><h3>Offline-first</h3><p>Designing resilient mobile experiences where data continuity matters most.</p></article>
-          <article class="card expertise-card tilt-card"><h3>Testing</h3><p>Unit, UI, instrumentation, and Compose testing approaches for quality at scale.</p></article>
-          <article class="card expertise-card tilt-card"><h3>CI/CD</h3><p>Ensuring reliable delivery through automation, build health, and streamlined release workflows.</p></article>
-          <article class="card expertise-card tilt-card"><h3>Accessibility</h3><p>Creating inclusive experiences that remain usable, readable, and polished across devices.</p></article>
-          <article class="card expertise-card tilt-card"><h3>WorkManager</h3><p>Managing background jobs, sync, and resilient task execution across app lifecycle states.</p></article>
-          <article class="card expertise-card tilt-card"><h3>DataStore & Room</h3><p>Building efficient local persistence and modern data layers for low-latency app behaviour.</p></article>
-          <article class="card expertise-card tilt-card"><h3>Navigation & Deeplinks</h3><p>Designing robust navigation systems with deep-link awareness and stable flow transitions.</p></article>
-          <article class="card expertise-card tilt-card"><h3>Play Store & Release</h3><p>Preparing production apps for rollout, monitoring, and continuous quality improvement.</p></article>
+        <div class="expertise-visual-grid">
+          <article class="card capability-card tilt-card">
+            <h3>Capability map</h3>
+            <div class="capability-graph">
+              <div class="metric-row"><span>Compose UI</span><div class="bar-track"><div class="bar-fill" style="--fill: 94%"></div></div></div>
+              <div class="metric-row"><span>Architecture</span><div class="bar-track"><div class="bar-fill" style="--fill: 91%"></div></div></div>
+              <div class="metric-row"><span>Performance</span><div class="bar-track"><div class="bar-fill" style="--fill: 88%"></div></div></div>
+              <div class="metric-row"><span>Offline Sync</span><div class="bar-track"><div class="bar-fill" style="--fill: 86%"></div></div></div>
+              <div class="metric-row"><span>AI Integration</span><div class="bar-track"><div class="bar-fill" style="--fill: 82%"></div></div></div>
+            </div>
+          </article>
+          <article class="card layer-card tilt-card">
+            <h3>Engineering layers</h3>
+            <div class="layer-flow">
+              <div class="layer-node">UI</div>
+              <div class="layer-node">State</div>
+              <div class="layer-node">Data</div>
+              <div class="layer-node">Reliability</div>
+            </div>
+            <div class="layer-footer">
+              <span>Compose</span>
+              <span>Flow</span>
+              <span>Room</span>
+              <span>Hilt</span>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -371,11 +403,35 @@
           <p class="eyebrow">Experience snapshot</p>
           <h2>Built across domains where mobile quality matters most.</h2>
         </div>
-        <div class="experience-grid">
-          <article class="card experience-card tilt-card"><h3>Smart Home</h3><p>Security flows, camera streaming, real-time states, and connected-device UX.</p></article>
-          <article class="card experience-card tilt-card"><h3>Industrial</h3><p>Offline-first apps for field operations, dynamic workflows, and validation processes.</p></article>
-          <article class="card experience-card tilt-card"><h3>Telecom</h3><p>High-scale SDK modernization and user interaction improvements.</p></article>
-          <article class="card experience-card tilt-card"><h3>Healthcare</h3><p>Deep-link based workflows, data reliability, and patient-facing product collaboration.</p></article>
+        <div class="domain-map">
+          <article class="card domain-card tilt-card">
+            <div class="domain-visual home"></div>
+            <div>
+              <h3>Smart Home</h3>
+              <p>Security flows and live-state UX</p>
+            </div>
+          </article>
+          <article class="card domain-card tilt-card">
+            <div class="domain-visual industrial"></div>
+            <div>
+              <h3>Industrial</h3>
+              <p>Offline-first workflows and field use</p>
+            </div>
+          </article>
+          <article class="card domain-card tilt-card">
+            <div class="domain-visual telecom"></div>
+            <div>
+              <h3>Telecom</h3>
+              <p>High-scale SDK and UX modernization</p>
+            </div>
+          </article>
+          <article class="card domain-card tilt-card">
+            <div class="domain-visual healthcare"></div>
+            <div>
+              <h3>Healthcare</h3>
+              <p>Critical reliability and deep-link flows</p>
+            </div>
+          </article>
         </div>
       </section>
 

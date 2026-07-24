@@ -1,5 +1,32 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const menuToggle = document.querySelector('.menu-toggle');
+const siteNav = document.querySelector('.nav-links');
+
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  siteNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 680) {
+      siteNav.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 const revealItems = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
